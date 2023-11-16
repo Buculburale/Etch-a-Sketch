@@ -7,6 +7,14 @@ const container = document.querySelector('.container');
 // Select the HTML button element.
 const resetButton = document.querySelector('button');
 
+const createRandomRGB = () =>{
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
+  return {r, g, b};
+}
+
 // Function to create a grid with a specified number of rows and columns.
 const createGrid = (amountOfGrid) => {
   // Create a container for the grid.
@@ -15,6 +23,7 @@ const createGrid = (amountOfGrid) => {
 
   // Loop to create rows in the grid.
   for (let i = 0; i < amountOfGrid; i++) {
+    const {r, g, b} = createRandomRGB ();
     const row = document.createElement('div');
     row.classList.add('grid-row');
     
@@ -25,7 +34,8 @@ const createGrid = (amountOfGrid) => {
 
       // Add a mouse enter listener to change the background color on hover.
       gridBox.addEventListener('mouseenter', () => {
-        gridBox.style.backgroundColor = 'black';
+        const bgColour = "rgb(" + r + "," + g + "," + b + " )";
+        gridBox.style.background = bgColour;
       });
       
       // Append the grid box to the current row.

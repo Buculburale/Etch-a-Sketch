@@ -7,6 +7,7 @@ const container = document.querySelector('.container');
 // Select the HTML button element.
 const resetButton = document.querySelector('button');
 
+// Function to generate a random RGB color.
 const createRandomRGB = () =>{
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
@@ -23,7 +24,9 @@ const createGrid = (amountOfGrid) => {
 
   // Loop to create rows in the grid.
   for (let i = 0; i < amountOfGrid; i++) {
+    // Generate a random RGB color for each row.
     const {r, g, b} = createRandomRGB ();
+    // Create a row element.
     const row = document.createElement('div');
     row.classList.add('grid-row');
     
